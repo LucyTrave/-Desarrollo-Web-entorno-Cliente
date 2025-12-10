@@ -1,0 +1,280 @@
+
+/* colores genéricos*/
+:root {
+  --bg: #f7fbff;
+  --surface: #fdfcfc;
+  --primary: #028f9c;
+  --primary-600: #01869a;
+  --secondary: #bac8c7;
+  --accent: #3a86ff;
+  --text: #1f2937;
+  --muted: #6b7280;
+  --danger: #e63946;
+  --border: #abacad;
+  --ok: #838585;
+  --shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+
+
+/* Imagen de fondo en el body */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+
+  /* Ruta de la imagen */
+  background-image: url("imagenes/chair.jpg");
+
+  /* Ajustes de la imagen */
+  background-size: cover;       /* La imagen cubre toda la pantalla */
+  background-position: center;  /* Centrada */
+  background-repeat: no-repeat; /* No se repite */
+  min-height: 100vh;            /* Ocupa toda la altura de la ventana */
+}
+
+/* Opcional: color de respaldo si la imagen tarda en cargar */
+body {
+  background-color: #f0f0f0;
+}
+
+/* Header Styles */
+.header {
+  display: flex; 
+  align-items: center;  /* Centra verticalmente los elementos */
+  justify-content: space-between; /* Espacio entre los elementos */
+  background-color: rgb(203, 202, 202);  /* Color de fondo del header */
+  padding: 16px 24px; /* Espaciado interno */
+  border-bottom: 1px solid var(--border);/* Línea inferior */
+  position: sticky; /* Hace que el header sea fijo al hacer scroll */
+  top: 0; /* Posición superior */
+  z-index: 10; /* Asegura que el header esté por encima de otros elementos */ 
+}
+
+/* Nombre de la marca */
+.brand__name { 
+  margin: 0;
+  font-size: 1.6rem;
+  letter-spacing: 0.5px;
+  color: var(--primary);
+}
+
+/* Tamaño del logo*/
+.header__logo img { 
+  height: 75px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Contenedor principal */
+.main {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+/* Centrado vertical y horizontal */
+.main--centered {
+  display: grid;
+  place-items: center;
+  min-height: calc(100vh - 160px);
+}
+
+
+/* Tarjetas */
+.card { 
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+}
+
+/* Título de las tarjetas */
+.card__title {  
+  margin: 0 0 12px 0;
+  font-size: 1.3rem;
+  color: var(--primary);
+}
+
+/* Tarjetas con acciones */
+.card--actions { 
+  width: 100%;
+  max-width: 560px;
+  text-align: center;
+}
+
+/* Barra de herramientas */
+.toolbar { 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+/* Toolbar Title */
+.tag { /* Etiquetas */
+  display: inline-block;
+  background: var(--secondary);
+  color: #05312f;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+}
+
+/* Contenedor de cuadrícula */
+.grid { 
+  display: grid;
+  gap: 12px;
+}
+.grid--2 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+/* Sección Títulos */
+.section-title { 
+  margin: 10px 0;
+  font-size: 1.1rem;
+  color: var(--primary-600);
+}
+
+/* Grupo de formulario */
+.form-group { 
+  display: flex;
+  flex-direction: column;
+}
+.form-group label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.form-group input {
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  background: #fbfdff;
+}
+.form-group input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(58, 134, 255, 0.15);
+}
+
+/* Estilo para campos con error */
+.error {
+  border-color: var(--danger) !important;
+}
+.error-msg {
+  color: var(--danger);
+  font-size: 0.85rem;
+  min-height: 1em;
+  margin-top: 6px;
+}
+
+/* Acciones del formulario */
+
+.form-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+/* Botones */
+.btn { 
+  border: none;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.06s ease;
+}
+.btn:active { transform: translateY(1px); }
+
+.btn--primary {
+  background: var(--primary);
+  color: #fff;
+}
+.btn--primary:hover { background: var(--primary-600); }
+
+.btn--secondary {
+  background: var(--accent);
+  color: #fff;
+}
+.btn--secondary:hover { background: #2a6ae6; }
+
+.btn--muted {
+  background: #e9eef6;
+  color: var(--text);
+}
+.btn--muted:hover { background: #dde6f2; }
+
+.btn--link {
+  background: transparent;
+  color: var(--primary);
+  padding: 6px 0;
+}
+.btn--link:hover { text-decoration: underline; }
+
+
+/* Tabla de datos */
+.table-wrapper { overflow-x: auto; }
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.table th, .table td {
+  border-bottom: 1px solid var(--border);
+  padding: 10px 8px;
+  text-align: left;
+  vertical-align: middle;
+}
+.table thead th {
+  background: #f1f6fb;
+  color: #0e3c41;
+}
+.table tbody tr:hover {
+  background: #f9fcff;
+}
+
+.actions {
+  display: flex;
+  gap: 6px;
+}
+.action--edit {
+  background: var(--ok);
+  color: #fff;
+}
+.action--edit:hover { background: #23897f; }
+.action--delete {
+  background: var(--danger);
+  color: #fff;
+}
+.action--delete:hover { background: #c52836; }
+
+
+/* Pie de página */
+
+.footer {
+  border-top: 1px solid var(--border);
+  background: rgb(203, 202, 202);
+  padding: 16px 24px;
+  margin-top: 24px;
+}
+.footer__content {
+  max-width: 1100px;
+  text-align: center;
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+/* Estilo para formularios de acción */
+.action-form { margin: 8px 0; }
+
+/* Clase para contenido accesible solo para lectores de pantalla */
+.sr-only {
+  position: absolute!important;
+  height: 1px; width: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}

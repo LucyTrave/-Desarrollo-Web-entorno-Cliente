@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Davantedent — Gestión de citas</title>
+
+  <link rel="stylesheet" href="style.css"/>
+</head>
+
+
+<body>
+
+  <!-- Cabecera -->
+  <header class="header">
+    <div class="header__brand">
+      <h1 class="brand__name">Davantedent</h1>
+    </div>
+    <div class="header__logo">
+      <img src="imagenes/davantedent.png" alt="Logo Davantedent"/>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="toolbar">
+      <a href="index.html" class="btn btn--link">← Volver al inicio</a>
+      <div class="toolbar__mode">
+        <span id="modeLabel" class="tag"></span>
+      </div>
+    </section>
+
+    <!-- Formulario de cita -->
+    <section class="card">
+      <h2 class="card__title">Datos de la cita</h2>
+      <form id="citaForm" novalidate>
+        <!-- Identificador oculto (solo uso JS / LocalStorage) -->
+        <input type="hidden" id="citaId" name="citaId" />
+
+        <div class="grid grid--2">
+          <div class="form-group">
+            <label for="fecha">Fecha</label>
+            <input type="datetime-local" id="fecha" name="fecha" required />
+            <div class="error-msg" data-error-for="fecha"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="observaciones">Observaciones</label>
+            <input type="text" id="observaciones" name="observaciones" placeholder="Motivo, piezas a tratar, blanqueamiento, etc." />
+            <div class="error-msg" data-error-for="observaciones"></div>
+          </div>
+        </div>
+
+        <h3 class="section-title">Datos del paciente</h3>
+        <div class="grid grid--2">
+          <div class="form-group">
+            <label for="nombre">Nombre y apellidos</label>
+            <input type="text" id="nombre" name="nombre" required />
+            <div class="error-msg" data-error-for="nombre"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="dni">DNI</label>
+            <input type="text" id="dni" name="dni" required placeholder="00000000A" />
+            <div class="error-msg" data-error-for="dni"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" required placeholder="600123456" />
+            <div class="error-msg" data-error-for="telefono"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="nacimiento">Fecha de nacimiento</label>
+            <input type="date" id="nacimiento" name="nacimiento" required />
+            <div class="error-msg" data-error-for="nacimiento"></div>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn--primary" id="btnGuardar">Guardar cita</button>
+          <button type="button" class="btn btn--muted" id="btnCancelar">Cancelar edición</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Tabla de citas -->
+    <section class="card">
+      <h2 class="card__title">Citas registradas</h2>
+      <div class="table-wrapper">
+        <table class="table" id="tablaCitas" aria-describedby="tablaCitasCaption">
+          <caption id="tablaCitasCaption" class="sr-only">Tabla de citas registradas</caption>
+          <thead>
+            <tr>
+              <th>Orden</th>
+              <th>Fecha</th>
+              <th>Paciente</th>
+              <th>DNI</th>
+              <th>Teléfono</th>
+              <th>Nacimiento</th>
+              <th>Observaciones</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tablaCitasBody">
+            <!-- Fila de dato vacío si no hay citas -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div class="footer__content">
+      <p><strong>Dirección:</strong> C/ Salud Dental, 12 — Granada, Andalucía</p>
+      <p><strong>Teléfono:</strong> 958 000 000 · <strong>Email:</strong> recepcion@davantedent.es</p>
+      <p>© 2025 Davantedent. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

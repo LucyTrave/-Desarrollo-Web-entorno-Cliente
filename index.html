@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Clínica DavanteDent </title>
+
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <!-- Cabecera -->
+  <header class="header">
+    <div class="header__brand">
+      <h1 class="brand__name">DavanteDent</h1>
+    </div>
+    <div class="header__logo">
+      <img src="imagenes/davantedent.png" alt="Logo Davantedent"/>
+    </div>
+  </header>
+
+  <!-- Contenido principal -->
+  <main class="main main--centered">
+    <section class="card card--actions">
+      <h2 class="card__title">Gestión de citas</h2>
+
+      <!-- Formulario 1: Añadir nuevas citas -->
+      <form class="action-form" action="gestion.html" method="get">
+        <input type="hidden" name="modo" value="crear"/>
+        <button type="submit" class="btn btn--primary">Añadir nueva cita</button>
+      </form>
+
+      <!-- Formulario 2: Modificar/Eliminar citas existentes -->
+      <form class="action-form" action="gestion.html" method="get">
+        <input type="hidden" name="modo" value="gestionar"/>
+        <button type="submit" class="btn btn--secondary">Modificar o eliminar citas</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Pie de página -->
+  <footer class="footer">
+    <div class="footer__content">
+      <p><strong>Dirección:</strong> C/ Conocimiento, 12 (Granada)</p>
+      <p><strong>Teléfono:</strong> 958 001 001 · <strong>Email:</strong> recepcion@davantedent.es</p>
+      <p>© 2025 DavanteDent. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+</body>
+</html>
